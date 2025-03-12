@@ -16,6 +16,11 @@
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
+
+Cypress.Commands.add('visitHomepage', () => {
+    cy.visit('https://opensource-demo.orangehrmlive.com/')
+})
+
 //
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
