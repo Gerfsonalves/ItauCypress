@@ -23,7 +23,7 @@ describe('OrangeHRM - Testes', () => {
     cy.contains('Dashboard').should('be.visible');
 
     cy.get('.oxd-userdropdown-tab').click();
-    cy.wait(4000); // Página ira aguardar 1 segundo, porque ta dando erro por causa da atualização rápida da página
+    cy.wait(1000);// Página ira aguardar segundo(s), dando erro por causa da atualização rápida da página
     cy.get('.oxd-dropdown-menu').should('be.visible');
 
     cy.contains('Logout').click();
@@ -32,7 +32,8 @@ describe('OrangeHRM - Testes', () => {
     cy.url().should('include', '/auth/login');
   });
 
-  it('Login com dados inválidos', () => {
+  // Login com dados inválidos
+  it('Deve tentar logar com dados inválidos', () => {
     cy.get('input[name="username"]').type('Ad000min');
     cy.get('input[name="password"]').type('000');
     cy.get('button[type="submit"]').click();
@@ -41,4 +42,13 @@ describe('OrangeHRM - Testes', () => {
       .and('have.text', 'Invalid credentials');
   });
 
+  // Deve tentar logar sem preencher o usuário e verificar se o sistema exibe um aviso.
+  it.only('Deve tentar logar sem preencher o "Username"', () => {
+
+  });
+
+  // Deve tentar logar sem preencher a senha e verificar se o sistema exibe um aviso.
+  it('Deve tentar logar sem preencher o "Password"', () => {
+
+  });
 });
