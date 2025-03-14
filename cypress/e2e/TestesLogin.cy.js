@@ -1,8 +1,6 @@
 
 /// <reference types="cypress" />
 
-
-
 describe('OrangeHRM - Testes', () => {
 
   beforeEach('Acessar a home', () => {
@@ -59,4 +57,22 @@ describe('OrangeHRM - Testes', () => {
       .should('be.visible')
       .and('contain', 'Required');
   });
+
+  // Botão "Forgot your password?" → Testar o fluxo de recuperação de senha.
+  it('Deve verificar se o botão "Forgot your password?" funciona corretamente', () => {
+    cy.get('p.orangehrm-login-forgot-header')
+      .should('be.visible')
+      .click();
+    cy.get('input[name="username"]')
+      .should('be.visible')
+      .click()
+      .type('Admin')
+    cy.get('button.orangehrm-forgot-password-button--reset')
+      .should('be.visible')
+      .click()
+    cy.get('h6.orangehrm-forgot-password-title')
+      .should('be.visible')
+      .and('contain', 'Reset Password link sent successfully');
+  });
+
 });
