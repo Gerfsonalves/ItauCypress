@@ -43,12 +43,20 @@ describe('OrangeHRM - Testes', () => {
   });
 
   // Deve tentar logar sem preencher o usuário e verificar se o sistema exibe um aviso.
-  it.only('Deve tentar logar sem preencher o "Username"', () => {
-
+  it('Deve tentar logar sem preencher o "Username"', () => {
+    cy.get('input[name="password"]').type('admin123');
+    cy.get('button[type="submit"]').click();
+    cy.get('span.oxd-input-field-error-message')
+      .should('be.visible')
+      .and('contain', 'Required');
   });
 
   // Deve tentar logar sem preencher a senha e verificar se o sistema exibe um aviso.
   it('Deve tentar logar sem preencher o "Password"', () => {
-
+    cy.get('input[name="username"]').type('Admin');
+    cy.get('button[type="submit"]').click();
+    cy.get('span.oxd-input-field-error-message')
+      .should('be.visible')
+      .and('contain', 'Required');
   });
 });
