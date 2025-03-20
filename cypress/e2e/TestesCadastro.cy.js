@@ -20,11 +20,7 @@ describe('OrangeHRM - Testes', () => {
             .clear()
             .type('01')
         cy.get('button.oxd-button').contains('Save').click()
-
         cy.contains('a.oxd-topbar-body-nav-tab-item', 'Employee List').click()
-
-
-
         cy.contains('div.oxd-table-row', 'Carlos')
             .should('be.visible')
     })

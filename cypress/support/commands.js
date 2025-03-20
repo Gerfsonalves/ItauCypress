@@ -9,7 +9,7 @@
 // ***********************************************
 //
 //
-// -- This is a parent command --
+
 Cypress.Commands.add('login', (username, password) => {
     cy.get('input[name="username"]').type('Admin');
     cy.get('input[name="password"]').type('admin123');
@@ -18,18 +18,25 @@ Cypress.Commands.add('login', (username, password) => {
 })
 
 
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
+// -- command --
+
 
 Cypress.Commands.add('visitHomepage', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/')
 })
 
 //
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
+// -- command --
+Cypress.Commands.add('formularioUser', (firstName, middleName, lastName, employeeId) => {
+    cy.get('input[name="firstName"]').type(firstName);
+    cy.get('input[name="middleName"]').type(middleName);
+    cy.get('input[name="lastName"]').type(lastName);
+    cy.contains('label.oxd-label', 'Employee Id')
+        .parent()
+        .next('div')
+        .find('input.oxd-input')
+        .clear()
+        .type(employeeId);
+});
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
