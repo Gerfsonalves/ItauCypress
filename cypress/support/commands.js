@@ -25,7 +25,7 @@ Cypress.Commands.add('visitHomepage', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/')
 })
 
-//
+
 // -- command --
 Cypress.Commands.add('formularioUser', (firstName, middleName, lastName, employeeId) => {
     cy.get('input[name="firstName"]').type(firstName);
