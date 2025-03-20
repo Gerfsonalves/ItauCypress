@@ -7,7 +7,7 @@ describe('OrangeHRM - Testes', () => {
         cy.login('Admin', 'admin123')
     })
 
-    it('CadastroUser', () => {
+    it('Deve cadastrar um novo usuário', () => {
         cy.get('span.oxd-text.oxd-text--span.oxd-main-menu-item--name').contains('PIM').click()
         cy.get('a.oxd-topbar-body-nav-tab-item').contains('Add Employee').click()
         cy.formularioUser('Carlos', 'Silva', 'Alves', '01')
