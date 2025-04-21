@@ -18,6 +18,3 @@ O teste utiliza um comando personalizado para preencher os campos do formulário
 Após preencher o formulário, o teste localiza e clica no botão "Save" para salvar o novo funcionário.<br>
 Após o cadastro se inicia uma navegação até o novo usuário na lista de funcionários cadastrado no sistema para a validação do mesmo.
 </h4>
-
-
-<h1>Projeto em andamento...
